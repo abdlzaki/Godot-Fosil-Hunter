@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://bx6st0uvim204"]
+
+[ext_resource type="Script" path="res://ending.gd" id="1_4621r"]
+
+[sub_resource type="VideoStreamTheora" id="VideoStreamTheora_wlsx2"]
+file = "EndingGame.ovg.ogg"
+
+[node name="Ending" type="Node2D"]
+script = ExtResource("1_4621r")
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
+offset_left = -240.0
+offset_top = -135.0
+offset_right = -200.0
+offset_bottom = -95.0
+scale = Vector2(0.375275, 0.374306)
+stream = SubResource("VideoStreamTheora_wlsx2")
+autoplay = true
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[connection signal="finished" from="VideoStreamPlayer" to="." method="_on_video_stream_player_finished"]
